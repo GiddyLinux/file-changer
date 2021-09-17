@@ -1,0 +1,138 @@
+#!/usr/bin/python3
+#!/usr/bin/python
+import subprocess
+import os
+import shutil
+import signal
+import sys
+signal.signal(signal.SIGINT, lambda x, y: sys.exit(0))
+
+path = os.getcwd()
+loc = ('')
+file = ('')
+choice2 = ('')
+print("\033[1;36;40m  \n")
+
+
+os.chdir('/home/giddy/stuff')
+
+def start2():
+    print("1 = See Dirs and Files")
+    print("")
+    print("2 = Add new Dir")
+    print("")
+    print("3 = Delete Dir and files")
+    print("")
+    print("4 = Change dir")
+    print()
+    print("5 = Move contents of directory")
+    choice = input("                | ")
+    print("")
+    if choice == '1':
+        print("Your default directory is your home folder")
+        print("")
+        print("Please use the 'Change dir' tool to change the default location")
+        print("")
+        print("Your Dirs are:")
+        print()
+        print("\033[1;32;40m ")
+        os.system('ls')
+        print("\033[1;36;40m  \n")
+        print()
+        start2()
+
+    if choice == '2':
+        print("\033[1;32;40m ")
+        enter1 = input("Please enter the name of the Dir you would like to create?                     |")
+        print("\033[1;36;40m  \n")
+        os.mkdir(enter1)
+        print()
+        print()
+        start2()
+
+    if choice == '3':
+        print()
+        print("\033[1;32;40m ")
+        choice2 = input("Which Dir or File do you want to delete?           |")
+        print("\033[1;36;40m  \n")
+        if choice2 == '99':
+            print()
+        else:
+            shutil.rmtree(choice2)
+        print()
+        print()
+        start2()
+
+    if choice == '4' :
+        print()
+        os.system('cd /')
+        print("\033[1;32;40m ")
+        print()
+        print("To return to the previous Dir enter ..")
+        print()
+        choice3 = input("Enter the full dir path to go to?|         ")
+        try:
+            os.chdir(choice3)
+        except Exception:
+            pass
+        print("\033[1;36;40m  \n")
+        print()
+
+        print()
+        print()
+        start2()
+
+    if choice == '5':
+        print('This modue will move all files from current directory to another')
+        print()
+        print("\033[1;32;40m ")
+        print()
+        file = input("What File/Dir would you like to move?       |")
+        loc = input("Where should I move the files?     |")
+        print("\033[1;36;40m  \n")
+        if loc == '99':
+            print()
+        else:
+            shutil.move(file,loc)
+        print()
+        print()
+        start2()
+
+
+
+def start():
+    print("-----------------------------------------------------------")
+    print("")
+    print("-    -   -   -   Basic File Manager   -   -   -   -")
+    print("")
+    print("------------------------------------------------------------")
+    print("")
+
+    print("")
+
+    print("")
+
+    print("")
+
+
+
+
+
+
+
+    #this next part will be for selecting info from the contact Book
+    #As well as writing info to it
+
+
+
+
+
+
+
+
+
+
+
+
+start()
+start2()
